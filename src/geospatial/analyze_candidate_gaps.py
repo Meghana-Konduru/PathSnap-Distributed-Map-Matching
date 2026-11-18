@@ -38,7 +38,7 @@ for trip_dir in sorted(TRAIN_DIR.iterdir()):
         observations,
         nodes,
         arcs,
-        search_radius_m=50.0,
+        search_radius_m=100.0,
         max_candidates=8
     )
 

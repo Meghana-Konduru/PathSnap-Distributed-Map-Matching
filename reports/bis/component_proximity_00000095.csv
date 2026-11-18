@@ -1,0 +1,8 @@
+component_rank,component_nodes,gps_observations_within_100m,gps_coverage_percentage,minimum_distance_m,median_nearest_distance_m
+1,1308,1551,100.0,0.72,10.8
+2,462,0,0.0,156.55,1197.83
+3,80,0,0.0,1052.68,1399.85
+4,15,0,0.0,714.66,1361.9
+5,14,0,0.0,1230.33,1992.48
+6,6,0,0.0,308.86,1395.64
+7,3,0,0.0,987.32,2372.58

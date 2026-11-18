@@ -1,0 +1,5 @@
+radius_m,observations,covered_observations,missing_observations,total_candidates,coverage_percentage
+100.0,19160,19160,0,130955,100.0
+110.0,19160,19160,0,132796,100.0
+125.0,19160,19160,0,134692,100.0
+150.0,19160,19160,0,137054,100.0

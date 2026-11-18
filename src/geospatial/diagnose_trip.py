@@ -9,59 +9,153 @@ from src.geospatial.candidate_generation import (
     generate_candidates,
 )
 
+
+# ============================================================
+# 1. SELECT THE TRIP
+# ============================================================
+
 TRIP_ID = "00000054"
+
 TRIP_DIR = Path("data/raw/student_folder/train") / TRIP_ID
 
-track = load_track(str(TRIP_DIR / f"{TRIP_ID}.track"))
-nodes = load_nodes(str(TRIP_DIR / f"{TRIP_ID}.nodes"))
-arcs = load_arcs(str(TRIP_DIR / f"{TRIP_ID}.arcs"))
+print("=" * 65)
+print(f"DIAGNOSTIC ANALYSIS FOR TRIP {TRIP_ID}")
+print("=" * 65)
+
+
+# ============================================================
+# 2. LOAD GPS, ROAD NODES AND ROAD ARCS
+# ============================================================
+
+track = load_track(
+    str(TRIP_DIR / f"{TRIP_ID}.track")
+)
+
+nodes = load_nodes(
+    str(TRIP_DIR / f"{TRIP_ID}.nodes")
+)
+
+arcs = load_arcs(
+    str(TRIP_DIR / f"{TRIP_ID}.arcs")
+)
+
+print("\nDATASET INFORMATION")
+print("-" * 40)
+
+print("GPS observations:", len(track))
+print("Road nodes:", len(nodes))
+print("Road arcs:", len(arcs))
+
+
+# ============================================================
+# 3. GENERATE CANDIDATES
+# ============================================================
 
 results = generate_candidates(
-    track,
-    nodes,
-    arcs,
+    observations=track,
+    nodes=nodes,
+    arcs=arcs,
     search_radius_m=50.0,
     max_candidates=8,
 )
 
-# --------------------------------------------------
-# 1. GPS AND ROAD NETWORK BOUNDING BOXES
-# --------------------------------------------------
+print("\nCANDIDATE GENERATION")
+print("-" * 40)
 
-def bounds(records, lon_key, lat_key):
-    longitudes = [r[lon_key] for r in records]
-    latitudes = [r[lat_key] for r in records]
+total_observations = len(results)
+
+candidate_counts = [
+    len(item["candidates"])
+    for item in results
+]
+
+total_candidates = sum(candidate_counts)
+
+observations_with_candidates = sum(
+    count > 0 for count in candidate_counts
+)
+
+observations_without_candidates = sum(
+    count == 0 for count in candidate_counts
+)
+
+coverage = (
+    observations_with_candidates / total_observations * 100
+    if total_observations else 0
+)
+
+print("Total observations:", total_observations)
+print("Total candidates:", total_candidates)
+print("Observations with candidates:", observations_with_candidates)
+print("Observations without candidates:", observations_without_candidates)
+print(f"Candidate coverage: {coverage:.2f}%")
+
+
+# ============================================================
+# 4. COMPARE GPS AND ROAD-NETWORK GEOGRAPHICAL BOUNDARIES
+# ============================================================
+
+def get_bounds(records):
+    longitudes = [item["longitude"] for item in records]
+    latitudes = [item["latitude"] for item in records]
 
     return {
-        "min_lon": min(longitudes),
-        "max_lon": max(longitudes),
-        "min_lat": min(latitudes),
-        "max_lat": max(latitudes),
+        "min_longitude": min(longitudes),
+        "max_longitude": max(longitudes),
+        "min_latitude": min(latitudes),
+        "max_latitude": max(latitudes),
     }
 
 
-gps_bounds = bounds(track, "longitude", "latitude")
-node_bounds = bounds(nodes, "longitude", "latitude")
+gps_bounds = get_bounds(track)
+node_bounds = get_bounds(nodes)
 
-print("=" * 60)
-print("TRIP 00000054 DIAGNOSTIC")
-print("=" * 60)
-
-print("\nGPS BOUNDING BOX")
+print("\nGPS GEOGRAPHICAL BOUNDARIES")
+print("-" * 40)
 print(gps_bounds)
 
-print("\nROAD NETWORK BOUNDING BOX")
+print("\nROAD-NETWORK GEOGRAPHICAL BOUNDARIES")
+print("-" * 40)
 print(node_bounds)
 
-print("\nGPS OBSERVATIONS:", len(track))
-print("ROAD NODES:", len(nodes))
-print("ROAD ARCS:", len(arcs))
 
-# --------------------------------------------------
-# 2. TIMESTAMP ANALYSIS
-# --------------------------------------------------
+# ============================================================
+# 5. CHECK WHETHER GPS POINTS FALL OUTSIDE NODE BOUNDARIES
+# ============================================================
 
-timestamps = [item["timestamp"] for item in track]
+outside_boundary = []
+
+for index, observation in enumerate(track):
+
+    lon = observation["longitude"]
+    lat = observation["latitude"]
+
+    outside = (
+        lon < node_bounds["min_longitude"]
+        or lon > node_bounds["max_longitude"]
+        or lat < node_bounds["min_latitude"]
+        or lat > node_bounds["max_latitude"]
+    )
+
+    if outside:
+        outside_boundary.append(index)
+
+
+print("\nGPS POINTS OUTSIDE ROAD-NODE BOUNDARIES")
+print("-" * 40)
+
+print("Outside boundary:", len(outside_boundary))
+print("Inside boundary:", len(track) - len(outside_boundary))
+
+
+# ============================================================
+# 6. ANALYSE TIMESTAMPS
+# ============================================================
+
+timestamps = [
+    observation["timestamp"]
+    for observation in track
+]
 
 time_differences = [
     timestamps[i] - timestamps[i - 1]
@@ -69,115 +163,132 @@ time_differences = [
 ]
 
 print("\nTIMESTAMP ANALYSIS")
+print("-" * 40)
+
 print("First timestamp:", timestamps[0])
 print("Last timestamp:", timestamps[-1])
-print("Minimum interval:", min(time_differences))
-print("Maximum interval:", max(time_differences))
-print("Non-positive intervals:", sum(
-    gap <= 0 for gap in time_differences
-))
-print("Intervals greater than 60 seconds:", sum(
-    gap > 60 for gap in time_differences
-))
 
-# --------------------------------------------------
-# 3. CANDIDATE COVERAGE
-# --------------------------------------------------
+if time_differences:
 
-candidate_counts = [
-    len(item["candidates"]) for item in results
-]
+    print("Minimum time interval:", min(time_differences))
+    print("Maximum time interval:", max(time_differences))
 
-print("\nCANDIDATE ANALYSIS")
-print("Observations with candidates:", sum(
-    count > 0 for count in candidate_counts
-))
-print("Observations without candidates:", sum(
-    count == 0 for count in candidate_counts
-))
-print("Maximum candidates:", max(candidate_counts))
-print("Average candidates:", sum(candidate_counts) / len(candidate_counts))
-
-# --------------------------------------------------
-# 4. CONTIGUOUS ZERO-CANDIDATE SEQUENCES
-# --------------------------------------------------
-
-missing_indices = [
-    i for i, count in enumerate(candidate_counts)
-    if count == 0
-]
-
-runs = []
-
-if missing_indices:
-    start = previous = missing_indices[0]
-
-    for index in missing_indices[1:]:
-        if index == previous + 1:
-            previous = index
-        else:
-            runs.append((start, previous))
-            start = previous = index
-
-    runs.append((start, previous))
-
-print("\nZERO-CANDIDATE SEQUENCES")
-print("Number of separate sequences:", len(runs))
-
-for start, end in sorted(
-    runs,
-    key=lambda item: item[1] - item[0],
-    reverse=True
-)[:15]:
-
-    print({
-        "start_index": start,
-        "end_index": end,
-        "observations": end - start + 1,
-        "start_timestamp": timestamps[start],
-        "end_timestamp": timestamps[end],
-        "start_coordinate": (
-            track[start]["longitude"],
-            track[start]["latitude"],
-        ),
-        "end_coordinate": (
-            track[end]["longitude"],
-            track[end]["latitude"],
-        ),
-    })
-
-# --------------------------------------------------
-# 5. SAMPLE MISSING OBSERVATIONS
-# --------------------------------------------------
-
-print("\nFIRST 10 MISSING OBSERVATIONS")
-
-for index in missing_indices[:10]:
-    print({
-        "index": index,
-        "timestamp": timestamps[index],
-        "longitude": track[index]["longitude"],
-        "latitude": track[index]["latitude"],
-    })
-
-# --------------------------------------------------
-# 6. CHECK GPS POINTS OUTSIDE NETWORK BOUNDS
-# --------------------------------------------------
-
-outside_bounds = []
-
-for index, observation in enumerate(track):
-    outside = (
-        observation["longitude"] < node_bounds["min_lon"]
-        or observation["longitude"] > node_bounds["max_lon"]
-        or observation["latitude"] < node_bounds["min_lat"]
-        or observation["latitude"] > node_bounds["max_lat"]
+    print(
+        "Average time interval:",
+        sum(time_differences) / len(time_differences),
     )
 
-    if outside:
-        outside_bounds.append(index)
+    print(
+        "Non-positive time intervals:",
+        sum(diff <= 0 for diff in time_differences),
+    )
 
-print("\nGPS POINTS OUTSIDE ROAD NETWORK BOUNDING BOX")
-print(len(outside_bounds))
 
-print("\nDIAGNOSTIC COMPLETE")
+# ============================================================
+# 7. IDENTIFY OBSERVATIONS WITH NO CANDIDATES
+# ============================================================
+
+missing_indices = [
+    index
+    for index, item in enumerate(results)
+    if len(item["candidates"]) == 0
+]
+
+print("\nMISSING-CANDIDATE ANALYSIS")
+print("-" * 40)
+
+print("Number of missing observations:", len(missing_indices))
+
+print("\nFIRST 10 OBSERVATIONS WITHOUT CANDIDATES")
+
+for index in missing_indices[:10]:
+
+    observation = results[index]
+
+    print(
+        f"Index: {index}, "
+        f"Timestamp: {observation['timestamp']}, "
+        f"Longitude: {observation['longitude']}, "
+        f"Latitude: {observation['latitude']}"
+    )
+
+
+# ============================================================
+# 8. FIND CONTIGUOUS MISSING-CANDIDATE SEQUENCES
+# ============================================================
+
+missing_runs = []
+
+if missing_indices:
+
+    run_start = missing_indices[0]
+    previous = missing_indices[0]
+
+    for index in missing_indices[1:]:
+
+        if index == previous + 1:
+            previous = index
+
+        else:
+            missing_runs.append((run_start, previous))
+            run_start = index
+            previous = index
+
+    missing_runs.append((run_start, previous))
+
+
+print("\nCONTIGUOUS MISSING-CANDIDATE SEQUENCES")
+print("-" * 40)
+
+print("Number of missing sequences:", len(missing_runs))
+
+for start, end in sorted(
+    missing_runs,
+    key=lambda run: run[1] - run[0],
+    reverse=True,
+)[:10]:
+
+    print(
+        f"Start index: {start}, "
+        f"End index: {end}, "
+        f"Length: {end - start + 1}"
+    )
+
+
+# ============================================================
+# 9. CANDIDATE COUNT DISTRIBUTION
+# ============================================================
+
+distribution = Counter(candidate_counts)
+
+print("\nCANDIDATE COUNT DISTRIBUTION")
+print("-" * 40)
+
+for number_of_candidates in sorted(distribution):
+
+    print(
+        f"{number_of_candidates} candidates: "
+        f"{distribution[number_of_candidates]} observations"
+    )
+
+
+# ============================================================
+# 10. SUMMARY
+# ============================================================
+
+print("\nFINAL DIAGNOSTIC SUMMARY")
+print("=" * 65)
+
+print("Trip ID:", TRIP_ID)
+print("GPS observations:", total_observations)
+print("Road nodes:", len(nodes))
+print("Road arcs:", len(arcs))
+print("Total candidates:", total_candidates)
+print("Candidate coverage:", f"{coverage:.2f}%")
+print("Missing candidates:", observations_without_candidates)
+print("GPS points outside node bounding box:", len(outside_boundary))
+print("Missing-candidate sequences:", len(missing_runs))
+
+print("=" * 65)
+print("DIAGNOSTIC COMPLETED")
+print("=" * 65)

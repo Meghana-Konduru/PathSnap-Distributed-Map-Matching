@@ -20,7 +20,7 @@ for index, trip_dir in enumerate(trip_dirs, start=1):
     try:
         results = load_trip_data(
             str(trip_dir),
-            search_radius_m=50.0,
+            search_radius_m=100.0,
             max_candidates=8
         )
 
