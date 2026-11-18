@@ -1,0 +1,17 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Synthetic BEE smoke-test artifacts
+experiments/bee_smoke_test/
+experiments/bee_optuna_smoke_test/
+experiments/bee_tracking_smoke_test/
+experiments/bee_tracking_integration_test/
+
+# Real experiment outputs should be reviewed before committing
