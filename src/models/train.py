@@ -243,8 +243,7 @@ def main():
         observation_column=args.observation,
         feature_columns=feature_columns,
         n_splits=args.splits,
-        #output_dir="experiments/bee_tracking_integration_test"
-        output_dir="experiments/bee_tracking_integration_test/optuna"
+        output_dir=args.output
     )
 
 

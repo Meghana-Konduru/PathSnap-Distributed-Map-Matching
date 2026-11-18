@@ -1,0 +1,722 @@
+[
+  {
+    "trip_id": "00000001",
+    "gps_observations": 1315,
+    "route_entries": 525,
+    "route_aligned_observations": 1257,
+    "candidate_misses": 2,
+    "training_observations": 1255,
+    "training_candidates": 8224
+  },
+  {
+    "trip_id": "00000002",
+    "gps_observations": 7243,
+    "route_entries": 262,
+    "route_aligned_observations": 5586,
+    "candidate_misses": 8,
+    "training_observations": 5578,
+    "training_candidates": 37786
+  },
+  {
+    "trip_id": "00000003",
+    "gps_observations": 821,
+    "route_entries": 79,
+    "route_aligned_observations": 740,
+    "candidate_misses": 6,
+    "training_observations": 734,
+    "training_candidates": 5597
+  },
+  {
+    "trip_id": "00000004",
+    "gps_observations": 1064,
+    "route_entries": 320,
+    "route_aligned_observations": 1049,
+    "candidate_misses": 15,
+    "training_observations": 1034,
+    "training_candidates": 5633
+  },
+  {
+    "trip_id": "00000005",
+    "gps_observations": 1045,
+    "route_entries": 105,
+    "route_aligned_observations": 1045,
+    "candidate_misses": 0,
+    "training_observations": 1045,
+    "training_candidates": 3073
+  },
+  {
+    "trip_id": "00000006",
+    "gps_observations": 1450,
+    "route_entries": 261,
+    "route_aligned_observations": 698,
+    "candidate_misses": 0,
+    "training_observations": 698,
+    "training_candidates": 4556
+  },
+  {
+    "trip_id": "00000008",
+    "gps_observations": 3093,
+    "route_entries": 173,
+    "route_aligned_observations": 2134,
+    "candidate_misses": 14,
+    "training_observations": 2120,
+    "training_candidates": 15886
+  },
+  {
+    "trip_id": "00000010",
+    "gps_observations": 2711,
+    "route_entries": 210,
+    "route_aligned_observations": 2081,
+    "candidate_misses": 32,
+    "training_observations": 2049,
+    "training_candidates": 15178
+  },
+  {
+    "trip_id": "00000011",
+    "gps_observations": 2828,
+    "route_entries": 565,
+    "route_aligned_observations": 5,
+    "candidate_misses": 0,
+    "training_observations": 5,
+    "training_candidates": 34
+  },
+  {
+    "trip_id": "00000012",
+    "gps_observations": 1608,
+    "route_entries": 205,
+    "route_aligned_observations": 1608,
+    "candidate_misses": 0,
+    "training_observations": 1608,
+    "training_candidates": 5849
+  },
+  {
+    "trip_id": "00000013",
+    "gps_observations": 2580,
+    "route_entries": 788,
+    "route_aligned_observations": 2535,
+    "candidate_misses": 0,
+    "training_observations": 2535,
+    "training_candidates": 15103
+  },
+  {
+    "trip_id": "00000014",
+    "gps_observations": 448,
+    "route_entries": 164,
+    "route_aligned_observations": 340,
+    "candidate_misses": 4,
+    "training_observations": 336,
+    "training_candidates": 2370
+  },
+  {
+    "trip_id": "00000016",
+    "gps_observations": 1305,
+    "route_entries": 204,
+    "route_aligned_observations": 1013,
+    "candidate_misses": 19,
+    "training_observations": 994,
+    "training_candidates": 7334
+  },
+  {
+    "trip_id": "00000018",
+    "gps_observations": 379,
+    "route_entries": 166,
+    "route_aligned_observations": 376,
+    "candidate_misses": 2,
+    "training_observations": 374,
+    "training_candidates": 2617
+  },
+  {
+    "trip_id": "00000019",
+    "gps_observations": 2354,
+    "route_entries": 545,
+    "route_aligned_observations": 2185,
+    "candidate_misses": 10,
+    "training_observations": 2175,
+    "training_candidates": 12803
+  },
+  {
+    "trip_id": "00000020",
+    "gps_observations": 2353,
+    "route_entries": 142,
+    "route_aligned_observations": 2213,
+    "candidate_misses": 0,
+    "training_observations": 2213,
+    "training_candidates": 7236
+  },
+  {
+    "trip_id": "00000021",
+    "gps_observations": 15783,
+    "route_entries": 277,
+    "route_aligned_observations": 15545,
+    "candidate_misses": 0,
+    "training_observations": 15545,
+    "training_candidates": 48536
+  },
+  {
+    "trip_id": "00000022",
+    "gps_observations": 474,
+    "route_entries": 376,
+    "route_aligned_observations": 364,
+    "candidate_misses": 1,
+    "training_observations": 363,
+    "training_candidates": 2651
+  },
+  {
+    "trip_id": "00000024",
+    "gps_observations": 801,
+    "route_entries": 249,
+    "route_aligned_observations": 801,
+    "candidate_misses": 0,
+    "training_observations": 801,
+    "training_candidates": 4678
+  },
+  {
+    "trip_id": "00000025",
+    "gps_observations": 1179,
+    "route_entries": 283,
+    "route_aligned_observations": 1178,
+    "candidate_misses": 2,
+    "training_observations": 1176,
+    "training_candidates": 7669
+  },
+  {
+    "trip_id": "00000026",
+    "gps_observations": 361,
+    "route_entries": 197,
+    "route_aligned_observations": 205,
+    "candidate_misses": 0,
+    "training_observations": 205,
+    "training_candidates": 1548
+  },
+  {
+    "trip_id": "00000027",
+    "gps_observations": 694,
+    "route_entries": 138,
+    "route_aligned_observations": 649,
+    "candidate_misses": 0,
+    "training_observations": 649,
+    "training_candidates": 3782
+  },
+  {
+    "trip_id": "00000028",
+    "gps_observations": 3565,
+    "route_entries": 618,
+    "route_aligned_observations": 3528,
+    "candidate_misses": 3,
+    "training_observations": 3525,
+    "training_candidates": 17916
+  },
+  {
+    "trip_id": "00000029",
+    "gps_observations": 733,
+    "route_entries": 204,
+    "route_aligned_observations": 706,
+    "candidate_misses": 1,
+    "training_observations": 705,
+    "training_candidates": 4998
+  },
+  {
+    "trip_id": "00000031",
+    "gps_observations": 4245,
+    "route_entries": 432,
+    "route_aligned_observations": 4022,
+    "candidate_misses": 5,
+    "training_observations": 4017,
+    "training_candidates": 22079
+  },
+  {
+    "trip_id": "00000032",
+    "gps_observations": 2464,
+    "route_entries": 819,
+    "route_aligned_observations": 2409,
+    "candidate_misses": 0,
+    "training_observations": 2409,
+    "training_candidates": 12853
+  },
+  {
+    "trip_id": "00000033",
+    "gps_observations": 5844,
+    "route_entries": 169,
+    "route_aligned_observations": 1323,
+    "candidate_misses": 463,
+    "training_observations": 860,
+    "training_candidates": 5960
+  },
+  {
+    "trip_id": "00000034",
+    "gps_observations": 3614,
+    "route_entries": 454,
+    "route_aligned_observations": 3388,
+    "candidate_misses": 4,
+    "training_observations": 3384,
+    "training_candidates": 19047
+  },
+  {
+    "trip_id": "00000035",
+    "gps_observations": 1643,
+    "route_entries": 403,
+    "route_aligned_observations": 1535,
+    "candidate_misses": 6,
+    "training_observations": 1529,
+    "training_candidates": 11209
+  },
+  {
+    "trip_id": "00000036",
+    "gps_observations": 1368,
+    "route_entries": 156,
+    "route_aligned_observations": 1303,
+    "candidate_misses": 0,
+    "training_observations": 1303,
+    "training_candidates": 7914
+  },
+  {
+    "trip_id": "00000037",
+    "gps_observations": 677,
+    "route_entries": 163,
+    "route_aligned_observations": 673,
+    "candidate_misses": 0,
+    "training_observations": 673,
+    "training_candidates": 4984
+  },
+  {
+    "trip_id": "00000038",
+    "gps_observations": 1287,
+    "route_entries": 221,
+    "route_aligned_observations": 1210,
+    "candidate_misses": 1,
+    "training_observations": 1209,
+    "training_candidates": 8593
+  },
+  {
+    "trip_id": "00000039",
+    "gps_observations": 363,
+    "route_entries": 161,
+    "route_aligned_observations": 284,
+    "candidate_misses": 0,
+    "training_observations": 284,
+    "training_candidates": 1712
+  },
+  {
+    "trip_id": "00000041",
+    "gps_observations": 1019,
+    "route_entries": 340,
+    "route_aligned_observations": 1010,
+    "candidate_misses": 1,
+    "training_observations": 1009,
+    "training_candidates": 6525
+  },
+  {
+    "trip_id": "00000042",
+    "gps_observations": 7739,
+    "route_entries": 1440,
+    "route_aligned_observations": 6770,
+    "candidate_misses": 0,
+    "training_observations": 6770,
+    "training_candidates": 40964
+  },
+  {
+    "trip_id": "00000043",
+    "gps_observations": 2322,
+    "route_entries": 427,
+    "route_aligned_observations": 1942,
+    "candidate_misses": 14,
+    "training_observations": 1928,
+    "training_candidates": 10432
+  },
+  {
+    "trip_id": "00000044",
+    "gps_observations": 546,
+    "route_entries": 130,
+    "route_aligned_observations": 539,
+    "candidate_misses": 1,
+    "training_observations": 538,
+    "training_candidates": 3600
+  },
+  {
+    "trip_id": "00000045",
+    "gps_observations": 640,
+    "route_entries": 59,
+    "route_aligned_observations": 509,
+    "candidate_misses": 0,
+    "training_observations": 509,
+    "training_candidates": 2162
+  },
+  {
+    "trip_id": "00000046",
+    "gps_observations": 1401,
+    "route_entries": 66,
+    "route_aligned_observations": 39,
+    "candidate_misses": 0,
+    "training_observations": 39,
+    "training_candidates": 288
+  },
+  {
+    "trip_id": "00000047",
+    "gps_observations": 1272,
+    "route_entries": 188,
+    "route_aligned_observations": 1239,
+    "candidate_misses": 0,
+    "training_observations": 1239,
+    "training_candidates": 8803
+  },
+  {
+    "trip_id": "00000048",
+    "gps_observations": 1240,
+    "route_entries": 149,
+    "route_aligned_observations": 24,
+    "candidate_misses": 0,
+    "training_observations": 24,
+    "training_candidates": 152
+  },
+  {
+    "trip_id": "00000050",
+    "gps_observations": 518,
+    "route_entries": 94,
+    "route_aligned_observations": 508,
+    "candidate_misses": 0,
+    "training_observations": 508,
+    "training_candidates": 3106
+  },
+  {
+    "trip_id": "00000051",
+    "gps_observations": 984,
+    "route_entries": 299,
+    "route_aligned_observations": 779,
+    "candidate_misses": 0,
+    "training_observations": 779,
+    "training_candidates": 5527
+  },
+  {
+    "trip_id": "00000053",
+    "gps_observations": 1304,
+    "route_entries": 754,
+    "route_aligned_observations": 1291,
+    "candidate_misses": 13,
+    "training_observations": 1278,
+    "training_candidates": 9286
+  },
+  {
+    "trip_id": "00000054",
+    "gps_observations": 19313,
+    "route_entries": 422,
+    "route_aligned_observations": 1948,
+    "candidate_misses": 11,
+    "training_observations": 1937,
+    "training_candidates": 13000
+  },
+  {
+    "trip_id": "00000055",
+    "gps_observations": 2472,
+    "route_entries": 475,
+    "route_aligned_observations": 2426,
+    "candidate_misses": 0,
+    "training_observations": 2426,
+    "training_candidates": 11628
+  },
+  {
+    "trip_id": "00000057",
+    "gps_observations": 1645,
+    "route_entries": 300,
+    "route_aligned_observations": 1438,
+    "candidate_misses": 1,
+    "training_observations": 1437,
+    "training_candidates": 9849
+  },
+  {
+    "trip_id": "00000058",
+    "gps_observations": 599,
+    "route_entries": 345,
+    "route_aligned_observations": 559,
+    "candidate_misses": 14,
+    "training_observations": 545,
+    "training_candidates": 4181
+  },
+  {
+    "trip_id": "00000060",
+    "gps_observations": 854,
+    "route_entries": 520,
+    "route_aligned_observations": 849,
+    "candidate_misses": 15,
+    "training_observations": 834,
+    "training_candidates": 6478
+  },
+  {
+    "trip_id": "00000061",
+    "gps_observations": 1430,
+    "route_entries": 296,
+    "route_aligned_observations": 88,
+    "candidate_misses": 3,
+    "training_observations": 85,
+    "training_candidates": 665
+  },
+  {
+    "trip_id": "00000062",
+    "gps_observations": 3378,
+    "route_entries": 497,
+    "route_aligned_observations": 2795,
+    "candidate_misses": 4,
+    "training_observations": 2791,
+    "training_candidates": 18173
+  },
+  {
+    "trip_id": "00000063",
+    "gps_observations": 2781,
+    "route_entries": 565,
+    "route_aligned_observations": 75,
+    "candidate_misses": 0,
+    "training_observations": 75,
+    "training_candidates": 590
+  },
+  {
+    "trip_id": "00000064",
+    "gps_observations": 2093,
+    "route_entries": 692,
+    "route_aligned_observations": 2092,
+    "candidate_misses": 2,
+    "training_observations": 2090,
+    "training_candidates": 11836
+  },
+  {
+    "trip_id": "00000066",
+    "gps_observations": 4325,
+    "route_entries": 365,
+    "route_aligned_observations": 3962,
+    "candidate_misses": 0,
+    "training_observations": 3962,
+    "training_candidates": 14169
+  },
+  {
+    "trip_id": "00000068",
+    "gps_observations": 747,
+    "route_entries": 240,
+    "route_aligned_observations": 742,
+    "candidate_misses": 2,
+    "training_observations": 740,
+    "training_candidates": 5242
+  },
+  {
+    "trip_id": "00000069",
+    "gps_observations": 2067,
+    "route_entries": 467,
+    "route_aligned_observations": 50,
+    "candidate_misses": 0,
+    "training_observations": 50,
+    "training_candidates": 348
+  },
+  {
+    "trip_id": "00000070",
+    "gps_observations": 2076,
+    "route_entries": 149,
+    "route_aligned_observations": 1880,
+    "candidate_misses": 1,
+    "training_observations": 1879,
+    "training_candidates": 9646
+  },
+  {
+    "trip_id": "00000071",
+    "gps_observations": 850,
+    "route_entries": 186,
+    "route_aligned_observations": 844,
+    "candidate_misses": 0,
+    "training_observations": 844,
+    "training_candidates": 5161
+  },
+  {
+    "trip_id": "00000072",
+    "gps_observations": 969,
+    "route_entries": 131,
+    "route_aligned_observations": 666,
+    "candidate_misses": 60,
+    "training_observations": 606,
+    "training_candidates": 4092
+  },
+  {
+    "trip_id": "00000074",
+    "gps_observations": 1929,
+    "route_entries": 305,
+    "route_aligned_observations": 1917,
+    "candidate_misses": 3,
+    "training_observations": 1914,
+    "training_candidates": 11460
+  },
+  {
+    "trip_id": "00000075",
+    "gps_observations": 1628,
+    "route_entries": 108,
+    "route_aligned_observations": 221,
+    "candidate_misses": 0,
+    "training_observations": 221,
+    "training_candidates": 1330
+  },
+  {
+    "trip_id": "00000078",
+    "gps_observations": 2909,
+    "route_entries": 1765,
+    "route_aligned_observations": 2894,
+    "candidate_misses": 2,
+    "training_observations": 2892,
+    "training_candidates": 19613
+  },
+  {
+    "trip_id": "00000079",
+    "gps_observations": 689,
+    "route_entries": 182,
+    "route_aligned_observations": 686,
+    "candidate_misses": 4,
+    "training_observations": 682,
+    "training_candidates": 5272
+  },
+  {
+    "trip_id": "00000080",
+    "gps_observations": 2510,
+    "route_entries": 139,
+    "route_aligned_observations": 2430,
+    "candidate_misses": 10,
+    "training_observations": 2420,
+    "training_candidates": 11876
+  },
+  {
+    "trip_id": "00000081",
+    "gps_observations": 3224,
+    "route_entries": 778,
+    "route_aligned_observations": 34,
+    "candidate_misses": 0,
+    "training_observations": 34,
+    "training_candidates": 108
+  },
+  {
+    "trip_id": "00000082",
+    "gps_observations": 4268,
+    "route_entries": 204,
+    "route_aligned_observations": 4111,
+    "candidate_misses": 0,
+    "training_observations": 4111,
+    "training_candidates": 22010
+  },
+  {
+    "trip_id": "00000083",
+    "gps_observations": 1507,
+    "route_entries": 143,
+    "route_aligned_observations": 1431,
+    "candidate_misses": 4,
+    "training_observations": 1427,
+    "training_candidates": 10427
+  },
+  {
+    "trip_id": "00000084",
+    "gps_observations": 16031,
+    "route_entries": 627,
+    "route_aligned_observations": 13874,
+    "candidate_misses": 29,
+    "training_observations": 13845,
+    "training_candidates": 66186
+  },
+  {
+    "trip_id": "00000085",
+    "gps_observations": 1092,
+    "route_entries": 170,
+    "route_aligned_observations": 783,
+    "candidate_misses": 0,
+    "training_observations": 783,
+    "training_candidates": 4462
+  },
+  {
+    "trip_id": "00000086",
+    "gps_observations": 4143,
+    "route_entries": 671,
+    "route_aligned_observations": 4140,
+    "candidate_misses": 2,
+    "training_observations": 4138,
+    "training_candidates": 16950
+  },
+  {
+    "trip_id": "00000088",
+    "gps_observations": 876,
+    "route_entries": 163,
+    "route_aligned_observations": 686,
+    "candidate_misses": 0,
+    "training_observations": 686,
+    "training_candidates": 5337
+  },
+  {
+    "trip_id": "00000089",
+    "gps_observations": 1228,
+    "route_entries": 265,
+    "route_aligned_observations": 834,
+    "candidate_misses": 7,
+    "training_observations": 827,
+    "training_candidates": 6420
+  },
+  {
+    "trip_id": "00000090",
+    "gps_observations": 536,
+    "route_entries": 235,
+    "route_aligned_observations": 481,
+    "candidate_misses": 4,
+    "training_observations": 477,
+    "training_candidates": 3478
+  },
+  {
+    "trip_id": "00000092",
+    "gps_observations": 7892,
+    "route_entries": 2266,
+    "route_aligned_observations": 7347,
+    "candidate_misses": 1,
+    "training_observations": 7346,
+    "training_candidates": 46737
+  },
+  {
+    "trip_id": "00000093",
+    "gps_observations": 1211,
+    "route_entries": 590,
+    "route_aligned_observations": 1191,
+    "candidate_misses": 51,
+    "training_observations": 1140,
+    "training_candidates": 8434
+  },
+  {
+    "trip_id": "00000095",
+    "gps_observations": 1551,
+    "route_entries": 306,
+    "route_aligned_observations": 6,
+    "candidate_misses": 0,
+    "training_observations": 6,
+    "training_candidates": 48
+  },
+  {
+    "trip_id": "00000096",
+    "gps_observations": 3271,
+    "route_entries": 456,
+    "route_aligned_observations": 2607,
+    "candidate_misses": 0,
+    "training_observations": 2607,
+    "training_candidates": 11675
+  },
+  {
+    "trip_id": "00000097",
+    "gps_observations": 1740,
+    "route_entries": 444,
+    "route_aligned_observations": 1735,
+    "candidate_misses": 2,
+    "training_observations": 1733,
+    "training_candidates": 10023
+  },
+  {
+    "trip_id": "00000098",
+    "gps_observations": 5584,
+    "route_entries": 1003,
+    "route_aligned_observations": 5542,
+    "candidate_misses": 3,
+    "training_observations": 5539,
+    "training_candidates": 27218
+  },
+  {
+    "trip_id": "00000099",
+    "gps_observations": 2322,
+    "route_entries": 886,
+    "route_aligned_observations": 2162,
+    "candidate_misses": 3,
+    "training_observations": 2159,
+    "training_candidates": 16019
+  }
+]

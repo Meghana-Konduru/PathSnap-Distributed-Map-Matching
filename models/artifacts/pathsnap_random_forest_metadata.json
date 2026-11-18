@@ -1,0 +1,29 @@
+{
+    "project": "PathSnap",
+    "model_name": "Random Forest",
+    "model_status": "provisional_final_model",
+    "training_dataset": "data/processed/bee_training_candidates.csv",
+    "training_rows": 846394,
+    "training_trip_count": 80,
+    "target_column": "label",
+    "group_column": "trip_id",
+    "feature_columns": [
+        "distance_m",
+        "projection_fraction",
+        "segment_length_m",
+        "candidate_rank",
+        "distance_to_best_m",
+        "distance_margin_m"
+    ],
+    "hyperparameters": {
+        "classifier__n_estimators": 200,
+        "classifier__max_depth": 12,
+        "classifier__min_samples_split": 7,
+        "classifier__min_samples_leaf": 1,
+        "classifier__max_features": "sqrt",
+        "classifier__n_jobs": 2
+    },
+    "random_state": 42,
+    "label_method": "Monotonic nearest-route geometric alignment; derived approximate labels.",
+    "validation_note": "Hyperparameters selected from the best of three completed Random Forest Optuna trials on a 20-trip subset. Not yet confirmed by identical-split validation."
+}

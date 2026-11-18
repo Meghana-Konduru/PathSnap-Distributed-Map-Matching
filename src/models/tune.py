@@ -255,6 +255,7 @@ def run_optimization(
     return study
 
 
+
 def main():
     parser = argparse.ArgumentParser(
         description="PathSnap Bayesian hyperparameter optimisation"
@@ -266,8 +267,16 @@ def main():
     parser.add_argument("--group", required=True)
     parser.add_argument("--observation", required=True)
     parser.add_argument("--features", required=True)
-    parser.add_argument("--splits", type=int, default=5)
-    parser.add_argument("--trials", type=int, default=30)
+    parser.add_argument("--splits", type=int, default=3)
+    parser.add_argument("--trials", type=int, default=8)
+
+    parser.add_argument(
+        "--max-trips",
+        type=int,
+        default=20,
+        help="Number of complete training trips used for optimisation"
+    )
+
     parser.add_argument(
         "--output",
         default="experiments/bee/optuna"
@@ -278,6 +287,12 @@ def main():
     if args.trials < 1:
         parser.error("--trials must be at least 1.")
 
+    if args.splits < 2:
+        parser.error("--splits must be at least 2.")
+
+    if args.max_trips < args.splits:
+        parser.error("--max-trips must be >= --splits.")
+
     feature_columns = [
         item.strip()
         for item in args.features.split(",")
@@ -285,6 +300,33 @@ def main():
     ]
 
     dataframe = load_feature_data(args.data)
+
+    # Select complete trips reproducibly.
+    available_trips = sorted(dataframe[args.group].unique())
+
+    if args.max_trips > len(available_trips):
+        parser.error(
+            f"Requested {args.max_trips} trips, "
+            f"but only {len(available_trips)} are available."
+        )
+
+    rng = np.random.RandomState(RANDOM_STATE)
+
+    selected_trips = rng.choice(
+        available_trips,
+        size=args.max_trips,
+        replace=False
+    )
+
+    dataframe = dataframe[
+        dataframe[args.group].isin(selected_trips)
+    ].copy()
+
+    print("\nOPTIMISATION DATA")
+    print("-----------------")
+    print(f"Selected trips: {len(selected_trips)}")
+    print(f"Candidate rows: {len(dataframe)}")
+    print(f"Model: {args.model}")
 
     run_optimization(
         dataframe=dataframe,

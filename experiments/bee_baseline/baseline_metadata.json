@@ -1,0 +1,15 @@
+{
+    "experiment_name": "baseline",
+    "n_splits": 5,
+    "unique_trip_count": 80,
+    "candidate_row_count": 846394,
+    "feature_columns": [
+        "distance_m",
+        "projection_fraction",
+        "segment_length_m",
+        "candidate_rank",
+        "distance_to_best_m",
+        "distance_margin_m"
+    ],
+    "fold_manifest_file": "baseline_fold_manifest.csv"
+}

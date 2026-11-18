@@ -1,0 +1,119 @@
+{
+    "evaluation": "student_test_development_evaluation",
+    "model": "Random Forest",
+    "trip_count_processed": 10,
+    "features": [
+        "distance_m",
+        "projection_fraction",
+        "segment_length_m",
+        "candidate_rank",
+        "distance_to_best_m",
+        "distance_margin_m"
+    ],
+    "overall_metrics": {
+        "candidate_accuracy": 0.8138927025029042,
+        "candidate_precision_macro": 0.7352964072397787,
+        "candidate_recall_macro": 0.8538143922951258,
+        "candidate_f1_macro": 0.7579330730923637,
+        "candidate_log_loss": 0.38041304912047136,
+        "observation_top1_accuracy": 0.5710134398837632,
+        "evaluated_observations": 13765,
+        "evaluated_candidates": 75752,
+        "route_aligned_observations": 13787,
+        "candidate_misses": 22,
+        "candidate_miss_rate": 0.0015957060999492276
+    },
+    "trip_diagnostics": [
+        {
+            "trip_id": "00000000",
+            "gps_observations": 2503,
+            "route_entries": 179,
+            "route_aligned_observations": 2490,
+            "candidate_misses": 5,
+            "training_observations": 2485,
+            "training_candidates": 9762
+        },
+        {
+            "trip_id": "00000007",
+            "gps_observations": 1354,
+            "route_entries": 123,
+            "route_aligned_observations": 1354,
+            "candidate_misses": 0,
+            "training_observations": 1354,
+            "training_candidates": 4574
+        },
+        {
+            "trip_id": "00000009",
+            "gps_observations": 1049,
+            "route_entries": 429,
+            "route_aligned_observations": 978,
+            "candidate_misses": 7,
+            "training_observations": 971,
+            "training_candidates": 7301
+        },
+        {
+            "trip_id": "00000040",
+            "gps_observations": 2995,
+            "route_entries": 309,
+            "route_aligned_observations": 2876,
+            "candidate_misses": 0,
+            "training_observations": 2876,
+            "training_candidates": 11880
+        },
+        {
+            "trip_id": "00000052",
+            "gps_observations": 262,
+            "route_entries": 95,
+            "route_aligned_observations": 261,
+            "candidate_misses": 0,
+            "training_observations": 261,
+            "training_candidates": 1696
+        },
+        {
+            "trip_id": "00000056",
+            "gps_observations": 3958,
+            "route_entries": 1323,
+            "route_aligned_observations": 186,
+            "candidate_misses": 0,
+            "training_observations": 186,
+            "training_candidates": 1204
+        },
+        {
+            "trip_id": "00000065",
+            "gps_observations": 768,
+            "route_entries": 145,
+            "route_aligned_observations": 606,
+            "candidate_misses": 1,
+            "training_observations": 605,
+            "training_candidates": 4414
+        },
+        {
+            "trip_id": "00000076",
+            "gps_observations": 1486,
+            "route_entries": 374,
+            "route_aligned_observations": 1457,
+            "candidate_misses": 8,
+            "training_observations": 1449,
+            "training_candidates": 10834
+        },
+        {
+            "trip_id": "00000077",
+            "gps_observations": 3911,
+            "route_entries": 268,
+            "route_aligned_observations": 2725,
+            "candidate_misses": 1,
+            "training_observations": 2724,
+            "training_candidates": 18124
+        },
+        {
+            "trip_id": "00000091",
+            "gps_observations": 874,
+            "route_entries": 232,
+            "route_aligned_observations": 854,
+            "candidate_misses": 0,
+            "training_observations": 854,
+            "training_candidates": 5963
+        }
+    ],
+    "label_limitation": "Reference labels use monotonic nearest-route geometric alignment. Metrics are development-stage results against approximate labels, not independent ground-truth validation."
+}

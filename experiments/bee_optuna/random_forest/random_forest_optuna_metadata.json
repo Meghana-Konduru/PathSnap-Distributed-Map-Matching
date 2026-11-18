@@ -1,0 +1,15 @@
+{
+    "experiment_name": "random_forest_optuna",
+    "n_splits": 3,
+    "unique_trip_count": 20,
+    "candidate_row_count": 253199,
+    "feature_columns": [
+        "distance_m",
+        "projection_fraction",
+        "segment_length_m",
+        "candidate_rank",
+        "distance_to_best_m",
+        "distance_margin_m"
+    ],
+    "fold_manifest_file": "random_forest_optuna_fold_manifest.csv"
+}
